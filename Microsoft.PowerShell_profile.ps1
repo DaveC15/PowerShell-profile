@@ -74,9 +74,7 @@ function Update-Scoop {
         Write-Host "Skipping PowerShell update check due to GitHub.com not responding within 1 second." -ForegroundColor Yellow
         return
     }
-    Write-Host "Updating Scoop..." -ForegroundColor Yellow
     scoop update
-    Write-Host "scoop has been updated." -ForegroundColor Green
 }
 Update-Scoop
 
@@ -94,6 +92,9 @@ function Test-CommandExists {
     $exists = $null -ne (Get-Command $command -ErrorAction SilentlyContinue)
     return $exists
 }
+
+# Fastfetch
+fastfetch
 
 # Scoop Search
 Invoke-Expression (&scoop-search-multisource.exe --hook)
