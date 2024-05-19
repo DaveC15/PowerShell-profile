@@ -85,6 +85,9 @@ function Test-CommandExists {
     return $exists
 }
 
+# Scoop Search
+Invoke-Expression (&scoop-search-multisource.exe --hook)
+
 # Editor Configuration
 $EDITOR = if (Test-CommandExists nvim) { 'nvim' }
           elseif (Test-CommandExists pvim) { 'pvim' }
