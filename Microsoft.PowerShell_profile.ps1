@@ -69,6 +69,15 @@ function Update-PowerShell {
 }
 Update-PowerShell
 
+function Update-PowerShell {
+    if (-not $global:canConnectToGitHub) {
+        Write-Host "Skipping PowerShell update check due to GitHub.com not responding within 1 second." -ForegroundColor Yellow
+        return
+    }
+    Write-Host "Updating Scoop..." -ForegroundColor Yellow
+    scoop update
+    Write-Host "scoop has been updated." -ForegroundColor Green
+}
 
 # Admin Check and Prompt Customization
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
