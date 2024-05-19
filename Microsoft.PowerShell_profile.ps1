@@ -74,7 +74,7 @@ function Update-Scoop {
         Write-Host "Skipping PowerShell update check due to GitHub.com not responding within 1 second." -ForegroundColor Yellow
         return
     }
-    scoop update
+    scoop update -q
 }
 Update-Scoop
 
