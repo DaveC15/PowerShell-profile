@@ -93,9 +93,6 @@ function Test-CommandExists {
     return $exists
 }
 
-# Fastfetch
-fastfetch
-
 # Scoop Search
 Invoke-Expression (&scoop-search-multisource.exe --hook)
 
